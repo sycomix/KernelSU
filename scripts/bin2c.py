@@ -9,10 +9,10 @@ line_size = 80
 
 def bin2c(filename, varname='data'):
     if not os.path.isfile(filename):
-        print('File "%s" is not found!' % filename)
+        print(f'File "{filename}" is not found!')
         return ''
     if not re.match('[a-zA-Z_][a-zA-Z0-9_]*', varname):
-        print('Invalid variable name "%s"' % varname)
+        print(f'Invalid variable name "{varname}"')
         return
     with open(filename, 'rb') as in_file:
         data = in_file.read()

@@ -22,11 +22,11 @@ def main():
     assert len(tmp) == 2
     maintainer = tmp[0]
     print(maintainer)
-    maintainer_link = "%s%s" % (github, maintainer)
+    maintainer_link = f"{github}{maintainer}"
     print(maintainer_link)
     kernel_name = tmp[1]
     print(kernel_name)
-    kernel_link = "%s%s/%s" % (github, maintainer, kernel_name)
+    kernel_link = f"{github}{maintainer}/{kernel_name}"
     print(kernel_link)
     with open(file_name, "r") as f:
         data = json.loads(f.read())
@@ -43,7 +43,7 @@ def main():
     with open(file_name, "w") as f:
         f.write(json.dumps(data, indent=4))
     os.system("echo success=true >> $GITHUB_OUTPUT")
-    os.system("echo device=%s >> $GITHUB_OUTPUT" % device)
+    os.system(f"echo device={device} >> $GITHUB_OUTPUT")
 
 
 if __name__ == "__main__":
